@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfoHot App - Tinder Simples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ff9a8b, #ff6a88);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background-color: lightcyan;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #ff5733;
+      margin-bottom: 5px;
+    }
+    h2 {
+      color: #ff758f;
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn-sim {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn-nao {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="imagens/HotLogo.png" alt="Logo InfoHot" height="100">
+    <h1>InfoHot</h1>
+    <h2>Venha conectar-se ao Amor da Sua Vida</h2>
+
+    <img id="profileImage" src="imagens/tinder2.jpg" alt="profile" style="width:300px;">
+    <div>
+      <button class="btn-nao" onclick="proximoPerfil()">Não</button>
+      <button class="btn-sim" onclick="perfilSelecionado()">Sim</button>
+    </div>
+  </div>
+  
+  <script>
+    const perfis = [
+      { image: "imagens/tinder2.jpg", html: "florbela.html" },
+      { image: "imagens/tinder3.jpg", html: "alexandrim.html" },
+      { image: "imagens/tinder4.jpg", html: "arthur.html" },
+      { image: "imagens/tinder5.jpg", html: "fernando.html" },
+      { image: "imagens/tinder6.png", html: "jose.html" }
+    ];
+    
+    let indiceAtual = 0;
+    
+    function atualizarPerfil() {
+      document.getElementById("profileImage").src = perfis[indiceAtual].image;
+    }
+    
+    function proximoPerfil() {
+      indiceAtual++;
+      if (indiceAtual >= perfis.length) {
+        alert("Não há mais perfis! Vamos voltar ao início.");
+        indiceAtual = 0;
+      }
+      atualizarPerfil();
+    }
+    
+    function perfilSelecionado() {
+      window.location.href = perfis[indiceAtual].html;
+    }
+  </script>
+</body>
+</html>
